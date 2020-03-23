@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   extends: 'erb/typescript',
   rules: {
@@ -5,6 +7,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off'
   },
   settings: {
+    'import/extensions': ['.js', '.jsx', '.tsx', '.ts'],
     'import/resolver': {
       // See https://github.com/benmosher/eslint-plugin-import/issues/1396#issuecomment-575727774 for line below
       node: {},
