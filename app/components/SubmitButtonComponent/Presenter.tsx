@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const SubmitButtonComponent: React.FC = () => {
   return <div> Test</div>;

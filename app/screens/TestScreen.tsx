@@ -1,5 +1,5 @@
-import React from 'react';
-import TestComponent from '@/components/SubmitButtonComponent';
+import React from "react";
+import TestComponent from "@/components/SubmitButtonComponent";
 
 const Test: React.FC = () => {
   return (

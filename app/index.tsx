@@ -1,15 +1,15 @@
-import React, { Fragment } from 'react';
-import { render } from 'react-dom';
-import { AppContainer as ReactHotAppContainer } from 'react-hot-loader';
-import Root from './screens/TestScreen';
+import React, {Fragment} from "react";
+import {render} from "react-dom";
+import {AppContainer as ReactHotAppContainer} from "react-hot-loader";
+import Root from "./screens/TestScreen";
 
 const AppContainer = process.env.PLAIN_HMR ? Fragment : ReactHotAppContainer;
 
-document.addEventListener('DOMContentLoaded', () =>
+document.addEventListener("DOMContentLoaded", () =>
   render(
     <AppContainer>
       <Root />
     </AppContainer>,
-    document.getElementById('root')
+    document.getElementById("root")
   )
 );
