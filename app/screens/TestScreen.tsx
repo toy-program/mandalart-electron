@@ -1,13 +1,8 @@
 import React from "react";
-import TestComponent from "@/components/SubmitButtonComponent";
+import TestScreen from "@/screens/HomeScreen";
 
 const Test: React.FC = () => {
-  return (
-    <div>
-      <span>Hello</span>
-      <TestComponent />
-    </div>
-  );
+  return <TestScreen />;
 };
 
 export default Test;

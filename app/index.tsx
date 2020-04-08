@@ -1,7 +1,7 @@
 import React, {Fragment} from "react";
 import {render} from "react-dom";
 import {AppContainer as ReactHotAppContainer} from "react-hot-loader";
-import Root from "./screens/TestScreen";
+import Root from "./App";
 
 const AppContainer = process.env.PLAIN_HMR ? Fragment : ReactHotAppContainer;
 
