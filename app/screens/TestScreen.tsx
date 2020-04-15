@@ -1,5 +1,5 @@
 import React from "react";
-import TestScreen from "@/screens/HomeScreen";
+import TestScreen from "@/screens/LoginScreen";
 
 const Test: React.FC = () => {
   return <TestScreen />;
