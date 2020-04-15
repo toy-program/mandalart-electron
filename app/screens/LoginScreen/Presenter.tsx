@@ -1,6 +1,6 @@
 import React, {FormEvent} from "react";
 import styled from "styled-components";
-import {TextField, Button} from "@material-ui/core";
+import {TextField, Button, Link, Breadcrumbs} from "@material-ui/core";
 
 interface Props {
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
@@ -30,10 +30,21 @@ export default function Presenter(props: Props) {
         type="password"
         ref={register}
       />
+
       <ButtonContainer>
         <Button type="submit">Login</Button>
         <Button onClick={handleGithubLogin}>Github Login</Button>
       </ButtonContainer>
+      <AddonContainer>
+        <Breadcrumbs>
+          <Link variant="body2" color="textPrimary" href="#">
+            Sign up
+          </Link>
+          <Link variant="body2" color="textPrimary" href="#">
+            Find email or password
+          </Link>
+        </Breadcrumbs>
+      </AddonContainer>
     </Container>
   );
 }
@@ -49,4 +60,8 @@ const Container = styled.form`
   align-items: center;
 
   justify-content: center;
+`;
+
+const AddonContainer = styled.div`
+  margin-top: 1rem;
 `;

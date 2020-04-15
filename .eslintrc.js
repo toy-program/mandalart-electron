@@ -9,7 +9,9 @@ module.exports = {
     "react/prop-types": "off",
     "react/no-array-index-key": "off",
     "import/prefer-default-export": "off",
-    "global-require": "off"
+    "global-require": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "jsx-a11y/anchor-is-valid": "off"
   },
   settings: {
     "import/extensions": [".js", ".jsx", ".tsx", ".ts"],
