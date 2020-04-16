@@ -10,11 +10,11 @@ interface LoginForm {
 }
 
 export default function LoginScreen() {
-  const {register, handleSubmit} = useForm<LoginForm>();
+  const {handleSubmit, control} = useForm<LoginForm>();
 
   const onSubmit = handleSubmit(async ({email, password}) => {
     try {
-      const {data} = await api.post(ENDPOINTS.LOGIN, {
+      const {data} = await api.post(ENDPOINTS.LOCALLOGIN, {
         email,
         password,
         provider: "local"
@@ -28,13 +28,13 @@ export default function LoginScreen() {
     }
   });
 
-  const handleGithubLogin = () => {};
+  const handleGoogleLogin = () => {};
 
   return (
     <Presenter
       onSubmit={onSubmit}
-      register={register}
-      handleGithubLogin={handleGithubLogin}
+      control={control}
+      handleGoogleLogin={handleGoogleLogin}
     />
   );
 }

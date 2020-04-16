@@ -11,7 +11,8 @@ module.exports = {
     "import/prefer-default-export": "off",
     "global-require": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "jsx-a11y/anchor-is-valid": "off"
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/jsx-wrap-multilines": "off"
   },
   settings: {
     "import/extensions": [".js", ".jsx", ".tsx", ".ts"],

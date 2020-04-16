@@ -1,39 +1,47 @@
 import React, {FormEvent} from "react";
 import styled from "styled-components";
+import {Controller} from "react-hook-form";
 import {TextField, Button, Link, Breadcrumbs} from "@material-ui/core";
 
 interface Props {
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
-  register: any;
-  handleGithubLogin: () => void;
+  control: any;
+  handleGoogleLogin: () => void;
 }
 
 export default function Presenter(props: Props) {
-  const {onSubmit, register, handleGithubLogin} = props;
+  const {onSubmit, control, handleGoogleLogin} = props;
   return (
     <Container onSubmit={onSubmit}>
-      <TextField
-        id="standard-basic"
-        required
-        margin="normal"
-        label="email"
+      <Controller
         name="email"
-        ref={register}
+        as={
+          <TextField
+            id="standard-basic"
+            required
+            margin="normal"
+            label="email"
+          />
+        }
+        control={control}
       />
-
-      <TextField
-        id="standard-basic"
-        required
-        margin="normal"
-        label="password"
+      <Controller
         name="password"
-        type="password"
-        ref={register}
+        control={control}
+        as={
+          <TextField
+            id="standard-basic"
+            required
+            margin="normal"
+            label="password"
+            type="password"
+          />
+        }
       />
 
       <ButtonContainer>
         <Button type="submit">Login</Button>
-        <Button onClick={handleGithubLogin}>Github Login</Button>
+        <Button onClick={handleGoogleLogin}>Google Login</Button>
       </ButtonContainer>
       <AddonContainer>
         <Breadcrumbs>
