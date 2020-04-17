@@ -12,7 +12,9 @@ module.exports = {
     "global-require": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "jsx-a11y/anchor-is-valid": "off",
-    "react/jsx-wrap-multilines": "off"
+    "react/jsx-wrap-multilines": "off",
+    "array-callback-return": "off",
+    "import/no-unresolved": "off"
   },
   settings: {
     "import/extensions": [".js", ".jsx", ".tsx", ".ts"],
