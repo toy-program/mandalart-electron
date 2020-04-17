@@ -1,11 +1,14 @@
 import {
   UserEntity,
   MemberEntity,
-  TeamEntity
+  TeamEntity,
+  ChartEntity,
+  SiloEntity
 } from "@toy-program/mandalart-model";
 
 interface MemberState extends MemberEntity {
   team: TeamEntity;
+  silos: Array<SiloEntity>;
 }
 
 interface UserState extends UserEntity {
@@ -20,8 +23,13 @@ declare global {
       error?: any;
     }
 
+    interface SiloState {
+      chartList: Array<ChartEntity>;
+    }
+
     interface State {
       auth: AuthState;
+      silo: SiloState;
     }
   }
 }

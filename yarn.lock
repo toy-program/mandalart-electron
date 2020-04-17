@@ -1528,6 +1528,13 @@
     react-is "^16.8.0"
     react-transition-group "^4.3.0"
 
+"@material-ui/icons@^4.9.1":
+  version "4.9.1"
+  resolved "https://registry.yarnpkg.com/@material-ui/icons/-/icons-4.9.1.tgz#fdeadf8cb3d89208945b33dbc50c7c616d0bd665"
+  integrity sha512-GBitL3oBWO0hzBhvA9KxqcowRUsA0qzwKkURyC8nppnC3fw54KPKZ+d4V1Eeg/UnDRSzDaI9nGCdel/eh9AQMg==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+
 "@material-ui/styles@^4.9.6":
   version "4.9.6"
   resolved "https://registry.yarnpkg.com/@material-ui/styles/-/styles-4.9.6.tgz#924a30bf7c9b91af9c8f19c12c8573b8a4ecd085"
@@ -1699,10 +1706,10 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@toy-program/mandalart-model@^0.5.1":
-  version "0.5.1"
-  resolved "https://npm.pkg.github.com/download/@toy-program/mandalart-model/0.5.1/232cedc88fd5cdb0d0b0d83a49b07101c60fe71f81fa72ad5fb6433bcbb7d307#099f56885032897db70c36f72ecedc3ee487ae29"
-  integrity sha512-TI6A5fS/wgeLQRUS7UDmoL6+t9mtbexSdz83kLQ6vTn7hSvLkBD1Ku2lsazwkc1k0zkNyMzvkjpF8ATxwivg0Q==
+"@toy-program/mandalart-model@^0.5.5":
+  version "0.5.5"
+  resolved "https://npm.pkg.github.com/download/@toy-program/mandalart-model/0.5.5/63d499e26690a21dc0a475de7dce2120fcf536d309c23eb60b9dafadb43ffd93#c53cddd45225d61fadd992f4313a2f6aa885ccb8"
+  integrity sha512-Oux82+Y+qaLsPJ3yapayxiE2mnlbRjkA0Neyr+y13kb7jpzAWXSrnbjtQSpniGDSxQGH09o7QGazCAOSCqp9kw==
 
 "@types/anymatch@*":
   version "1.3.1"

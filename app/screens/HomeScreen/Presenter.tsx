@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import SlimLineDivComponent from "@/components/SlimLineDivComponent";
+import SlimLineDivComponent from "@/containers/SlimLineDiv";
 import LogoComponent from "@/components/LogoComponent";
 
 const Presenter = () => {

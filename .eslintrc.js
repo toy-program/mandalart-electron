@@ -14,7 +14,8 @@ module.exports = {
     "jsx-a11y/anchor-is-valid": "off",
     "react/jsx-wrap-multilines": "off",
     "array-callback-return": "off",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "@typescript-eslint/no-unused-vars": "off"
   },
   settings: {
     "import/extensions": [".js", ".jsx", ".tsx", ".ts"],

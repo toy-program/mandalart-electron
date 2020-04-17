@@ -1,29 +1,24 @@
 // IMPORT
 import {put, call, takeLatest} from "redux-saga/effects";
+import {ChartEntity} from "@toy-program/mandalart-model";
 import {ENDPOINTS} from "@/constants";
-import {LocalLoginForm} from "./interface";
 import {api} from "@/utils/api";
 
 // ACTION TYPE
 
-const FETCHING_FAIL = "AUTH/FETCHING_FAIL" as const;
-const LOGIN = "AUTH/LOGIN" as const;
-const LOGIN_SUCCESS = "AUTH/LOGIN_SUCCESS" as const;
-const LOGOUT = "AUTH/LOGOUT" as const;
+const FETCHING_FAIL = "SILO/FETCHING_FAIL" as const;
+const GET_CHARTLIST = "SILO/GET_CHARTLIST" as const;
+const GET_CHARTLIST_SUCCESS = "SILO/GET_CHARTLIST_S" as const;
 // ACTION CREATOR
 
-export const authLogin = (form: LocalLoginForm) => ({
-  type: LOGIN,
-  payload: {form}
+export const getSiloChartList = (siloId: number) => ({
+  payload: {siloId},
+  type: GET_CHARTLIST
 });
 
-export const authLogout = () => ({
-  type: LOGOUT
-});
-
-const authLoginSuccess = (accessToken: string) => ({
-  payload: {accessToken},
-  type: LOGIN_SUCCESS
+const getSiloChartListSuccess = (chartList: Array<ChartEntity>) => ({
+  payload: {chartList},
+  type: GET_CHARTLIST_SUCCESS
 });
 
 export const fail = (e: any) => ({type: FETCHING_FAIL, payload: {error: e}});
@@ -32,9 +27,8 @@ export const fail = (e: any) => ({type: FETCHING_FAIL, payload: {error: e}});
 
 type AuthAction =
   | ReturnType<typeof fail>
-  | ReturnType<typeof authLogout>
-  | ReturnType<typeof authLogin>
-  | ReturnType<typeof authLoginSuccess>;
+  | ReturnType<typeof getSiloChartList>
+  | ReturnType<typeof getSiloChartListSuccess>;
 
 // INITIAL STATE
 
