@@ -2,7 +2,7 @@
 import {put, call, takeLatest} from "redux-saga/effects";
 import {ChartEntity} from "@toy-program/mandalart-model";
 import {ENDPOINTS} from "@/constants";
-import {api} from "@/utils/api";
+import {authApi} from "@/utils/api";
 
 // ACTION TYPE
 
@@ -11,8 +11,8 @@ const GET_CHARTLIST = "SILO/GET_CHARTLIST" as const;
 const GET_CHARTLIST_SUCCESS = "SILO/GET_CHARTLIST_S" as const;
 // ACTION CREATOR
 
-export const getSiloChartList = (siloId: number) => ({
-  payload: {siloId},
+export const getSiloChartList = (siloId: number, token: string) => ({
+  payload: {siloId, token},
   type: GET_CHARTLIST
 });
 
@@ -39,7 +39,7 @@ const initialState: Mandalart.AuthState = {};
 const reducer = (
   state = initialState,
   action: AuthAction
-): Mandalart.AuthState => {
+): Mandalart.SiloState => {
   switch (action.type) {
     case FETCHING_FAIL: {
       return {
@@ -48,17 +48,11 @@ const reducer = (
       };
     }
 
-    case LOGIN_SUCCESS: {
-      const {accessToken} = action.payload;
+    case GET_CHARTLIST_SUCCESS: {
+      const {chartList} = action.payload;
       return {
-        ...state,
-        accessToken,
-        error: null
+        chartList
       };
-    }
-
-    case LOGOUT: {
-      return {};
     }
 
     default:
@@ -70,16 +64,15 @@ export default reducer;
 
 // SAGA
 
-const loginApi = (form: LocalLoginForm) =>
-  api.post(ENDPOINTS.LOGIN_LOCAL, form);
+const getSiloChartListApi = (siloId: number, token: string) => {
+  return authApi(token).get(ENDPOINTS.GET_SILO_CHART(siloId));
+};
 
-function* loginSaga(action: ReturnType<typeof authLogin>) {
+function* getSiloChartListSaga(action: ReturnType<typeof getSiloChartList>) {
   try {
-    const {form} = action.payload;
-    const {
-      data: {result: accessToken}
-    } = yield call(loginApi, form);
-    yield put(authLoginSuccess(accessToken));
+    const {siloId, token} = action.payload;
+    const {data} = yield call(getSiloChartListApi, siloId, token);
+    yield put(getSiloChartListSuccess(data.result));
   } catch (e) {
     const err = e?.response?.data;
     if (err) yield put(fail(err));
@@ -88,5 +81,5 @@ function* loginSaga(action: ReturnType<typeof authLogin>) {
 }
 
 export function* authSaga() {
-  yield takeLatest(LOGIN, loginSaga);
+  yield takeLatest(GET_CHARTLIST, getSiloChartListSaga);
 }

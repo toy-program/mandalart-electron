@@ -1,15 +1,25 @@
 import React from "react";
 import styled from "styled-components";
-import SlimLineDivComponent from "@/containers/SlimLineDiv";
+import {TeamEntity} from "@toy-program/mandalart-model";
+import SlimLineDivComponent from "@/components/SlimLineDiv";
 import LogoComponent from "@/components/LogoComponent";
+import SiloListSection from "@/containers/SiloListSection";
 
-const Presenter = () => {
+interface Props {
+  teamList: Array<TeamEntity>;
+}
+
+const Presenter = (props: Props) => {
+  const {teamList} = props;
   return (
     <Container>
       <SlimLineDivComponent height="100%" width="17.0625rem">
         <LogoBox>
           <LogoComponent />
         </LogoBox>
+        {teamList.map((team, index) => (
+          <SiloListSection key={index} team={team} />
+        ))}
       </SlimLineDivComponent>
       <HomeDashboard />
     </Container>

@@ -1,1 +1,1 @@
-export {default} from "./ChartListSection";
+export {default} from "./SiloListSection";

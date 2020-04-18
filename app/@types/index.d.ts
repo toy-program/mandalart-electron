@@ -24,12 +24,19 @@ declare global {
     }
 
     interface SiloState {
-      chartList: Array<ChartEntity>;
+      chartList?: Array<ChartEntity>;
+      error?: any;
+    }
+
+    interface TeamState {
+      teamList?: Array<TeamEntity>;
+      error?: any;
     }
 
     interface State {
       auth: AuthState;
       silo: SiloState;
+      team: TeamState;
     }
   }
 }
